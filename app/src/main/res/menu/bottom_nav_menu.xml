@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_living"
+        android:icon="@drawable/baseline_living_24"
+        android:title="@string/title_living" />
+
+    <item
+        android:id="@+id/navigation_bed"
+        android:icon="@drawable/baseline_bed_24"
+        android:title="@string/title_bed" />
+
+    <item
+        android:id="@+id/navigation_kitchen"
+        android:icon="@drawable/baseline_kitchen_24"
+        android:title="@string/title_kitchen" />
+
+    <item
+        android:id="@+id/navigation_bath"
+        android:icon="@drawable/baseline_bath_24"
+        android:title="@string/title_bath" />
+
+    <item
+        android:id="@+id/navigation_about"
+        android:icon="@drawable/baseline_info_24"
+        android:title="@string/about" />
+
+</menu>
