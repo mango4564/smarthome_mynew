@@ -124,6 +124,27 @@ class BathFragment : Fragment() {
             }
         }
 
+        val windowButton = binding.switchWindow
+        windowButton.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                Thread {
+                    run {
+                        val requestParam =
+                            RequestParam(HouseActivity.houseNumber, "mode", "窗户", "on", "", "")
+                        MqttService.publishMode(requestParam)
+                    }
+                }.start()
+            } else {
+                Thread {
+                    run {
+                        val requestParam =
+                            RequestParam(HouseActivity.houseNumber, "mode", "窗户", "off", "", "")
+                        MqttService.publishMode(requestParam)
+                    }
+                }.start()
+            }
+        }
+
         val curtainButton = binding.switchCurtain
         curtainButton.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
