@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.ichippower.smarthouse"
+    namespace = "com.ichippower.smarthousedemo"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.ichippower.smarthouse"
+        applicationId = "com.ichippower.smarthousedemo"
         minSdk = 29
         //noinspection EditedTargetSdkVersion
         targetSdk = 34

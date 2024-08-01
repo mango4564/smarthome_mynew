@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">智慧小屋</string>
+    <string name="app_name">智慧小屋示例</string>
     <string name="app_title">智能嵌入式智慧小屋</string>
     <string name="title_living">智慧小屋-客厅</string>
     <string name="title_bed">智慧小屋-卧室</string>
@@ -39,4 +39,5 @@
     <string name="company">厦门芯力量物联网实验室有限责任公司</string>
     <string name="about">关于</string>
     <string name="window">窗户</string>
+    <string name="app_title_demo">远程控制示例程序</string>
 </resources>

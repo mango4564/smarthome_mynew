@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_living"
-        android:name="com.ichippower.smarthouse.ui.living.LivingFragment"
+        android:name="com.ichippower.smarthousedemo.ui.living.LivingFragment"
         android:label="@string/title_living"
         tools:layout="@layout/fragment_living" />
 
     <fragment
         android:id="@+id/navigation_bed"
-        android:name="com.ichippower.smarthouse.ui.bed.BedFragment"
+        android:name="com.ichippower.smarthousedemo.ui.bed.BedFragment"
         android:label="@string/title_bed"
         tools:layout="@layout/fragment_bed" />
 
     <fragment
         android:id="@+id/navigation_kitchen"
-        android:name="com.ichippower.smarthouse.ui.kitchen.KitchenFragment"
+        android:name="com.ichippower.smarthousedemo.ui.kitchen.KitchenFragment"
         android:label="@string/title_kitchen"
         tools:layout="@layout/fragment_kitchen" />
 
     <fragment
         android:id="@+id/navigation_bath"
-        android:name="com.ichippower.smarthouse.ui.bath.BathFragment"
+        android:name="com.ichippower.smarthousedemo.ui.bath.BathFragment"
         android:label="@string/title_bath"
         tools:layout="@layout/fragment_bath" />
 
     <fragment
         android:id="@+id/navigation_about"
-        android:name="com.ichippower.smarthouse.ui.about.AboutFragment"
+        android:name="com.ichippower.smarthousedemo.ui.about.AboutFragment"
         android:label="@string/about"
         tools:layout="@layout/fragment_about" />
 </navigation>

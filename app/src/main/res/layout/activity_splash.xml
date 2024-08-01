@@ -39,4 +39,22 @@
         app:layout_constraintVertical_bias="0.32"
         tools:visibility="visible" />
 
+    <TextView
+        android:id="@+id/textViewDemo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_title_demo"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/textView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.388"
+        tools:visibility="visible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

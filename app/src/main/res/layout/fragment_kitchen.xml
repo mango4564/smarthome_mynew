@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/kitchen_back"
-    tools:context=".ui.kitchen.KitchenFragment">
+    tools:context="com.ichippower.smarthousedemo.ui.kitchen.KitchenFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,125 +42,12 @@
             tools:ignore="MissingConstraints,RtlSymmetry" />
 
         <LinearLayout
-            android:id="@+id/firstRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            app:layout_constraintBottom_toBottomOf="@id/tv_date">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/linear_border"
-                android:visibility="visible"
-                tools:visibility="visible">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/red_light" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="100dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:text="@string/kitchen_light"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:visibility="visible" />
-
-                    <ToggleButton
-                        android:id="@+id/switchKitchenLight"
-                        android:layout_width="90dp"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="25dp"
-                        android:background="@drawable/togglebtn_check"
-                        android:checked="false"
-                        android:disabledAlpha="1"
-                        android:textOff=""
-                        android:textOn="" />
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/linear_border"
-                android:gravity="center"
-                android:visibility="visible"
-                tools:visibility="visible">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/fan" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="100dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:text="@string/extractor"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:visibility="visible" />
-
-                    <ToggleButton
-                        android:id="@+id/switchExtractor"
-                        android:layout_width="90dp"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="25dp"
-                        android:background="@drawable/togglebtn_check"
-                        android:checked="false"
-                        android:disabledAlpha="1"
-                        android:textOff=""
-                        android:textOn="" />
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/secondRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="?actionBarSize"
             android:baselineAligned="false"
-            app:layout_constraintBottom_toBottomOf="@id/firstRow">
+            app:layout_constraintBottom_toBottomOf="@id/tv_date">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
@@ -210,38 +97,6 @@
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="22sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="sans-serif"
-                            android:text="@string/fireAlarm"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:visibility="visible" />
-
-                        <ToggleButton
-                            android:id="@+id/switchFireAlarm"
-                            android:layout_width="90dp"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="40dp"
-                            android:background="@drawable/togglebtn_check"
-                            android:checked="false"
-                            android:disabledAlpha="1"
-                            android:textOff=""
-                            android:textOn="" />
-                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
