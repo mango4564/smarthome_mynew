@@ -318,9 +318,12 @@ class KitchenFragment : Fragment() {
                     val message = intent.getStringExtra("data")
                     val data = Gson().fromJson(message, ResponseParam::class.java)
                     Log.d(KitchenFragment::class.java.simpleName, data.toString())
-                    //更新UI
-                    binding.COText.text = data.getConcentration() + " PPM"
-                    viewModel.update(data.getConcentration())
+                    //更新UI，只有当浓度值不为空时才更新
+                    val concentration = data.getConcentration()
+                    if (concentration != null) {
+                        binding.COText.text = "$concentration PPM"
+                        viewModel.update(concentration)
+                    }
                 }
             }
         }
