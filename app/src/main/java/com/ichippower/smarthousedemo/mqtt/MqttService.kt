@@ -244,7 +244,7 @@ class MqttService : Service() {
 
         @SuppressLint("StaticFieldLeak")
         private var mqttAndroidClient: MqttAndroidClient? = null
-        private const val HOST = "tcp://47.99.144.16:1883" //服务器地址（协议+地址+端口号）
+        private const val HOST = "tcp://192111111:1883" //服务器地址（协议+地址+端口号）
         private const val USERNAME = "mqtt:root" //用户名
         private const val PASSWORD = "xmxllAdmin2020." //密码
         lateinit var subscribeTopic: String //订阅主题
