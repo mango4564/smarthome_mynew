@@ -1,5 +1,6 @@
 package com.ichippower.smarthousedemo.ui.bed
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -28,6 +29,8 @@ class BedViewModel : ViewModel() {
     fun update(data: ResponseParam) {
         temperature_text = MutableLiveData<String>().apply {
             value = "${data.getTemperature()}℃"
+            Log.i("天气", "update: 温度"+value)
+
         }
 
         humid_text = MutableLiveData<String>().apply {

@@ -3,6 +3,7 @@ package com.ichippower.smarthousedemo.ui
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.ActivityManager
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -10,12 +11,19 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.view.KeyEvent
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.edit
 import com.ichippower.smarthousedemo.databinding.ActivityHouseBinding
 import com.ichippower.smarthousedemo.mqtt.MqttService
+import java.io.BufferedReader
+import java.io.BufferedWriter
+import java.io.IOException
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
 import java.util.UUID
 
 class HouseActivity : AppCompatActivity() {
@@ -28,19 +36,47 @@ class HouseActivity : AppCompatActivity() {
 
         binding = ActivityHouseBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         checkPermission()
+
+        /**
+         * *
+         * 自动登录功能
+         */
+        val prefs = getSharedPreferences("config", MODE_PRIVATE)
+        val lastHouseNumber = prefs.getString("lastHouseNumber","")
+        val autoLoginChecked = prefs.getBoolean("autoLoginChecked",false)
+        if(autoLoginChecked == true){
+            houseNumber = lastHouseNumber.toString()
+            val intent = Intent(this, MqttService::class.java)
+            intent.putExtra("houseNumber", houseNumber)
+            startMqttService()
+            startMainActivity()
+            Toast.makeText(this,"自动登录成功,小屋编号:"+ houseNumber,Toast.LENGTH_SHORT).show()
+        }
+
+
 
         binding.confirmButton.setOnClickListener {
             val _houseNumber = binding.houseNumber.text.toString()
             if (_houseNumber == "") {
                 Toast.makeText(applicationContext, "编号不能为空！", Toast.LENGTH_SHORT).show()
             } else {
+                getSharedPreferences("config", MODE_PRIVATE).edit{
+                    putString("lastHouseNumber",binding.houseNumber.text.toString())
+                    val autoLoginCheckBox = binding.autoLoginCheckBox
+                    if(autoLoginCheckBox.isChecked){
+                        putBoolean("autoLoginChecked",true)
+                    }else{
+                        putBoolean("autoLoginChecked",false)
+                    }
+                }
                 houseNumber = _houseNumber
                 startMqttService()
                 startMainActivity()
             }
         }
+
+
 
         handler = @SuppressLint("HandlerLeak")
         object : Handler(Looper.getMainLooper()) {
@@ -53,13 +89,13 @@ class HouseActivity : AppCompatActivity() {
 
     private fun startMqttService() {
         if (MqttService.getServiceConnStat()) {
-            MqttService.subscribeTopic = "smarthouse_remote_subscribe*$houseNumber"
-            MqttService.publishTopic = "smarthouse_subscribe*$houseNumber"
+            MqttService.subscribeTopic = "smarthouse_remote_subscribe_$houseNumber"
+            MqttService.publishTopic = "smarthouse_subscribe_$houseNumber"
             MqttService.subscribe()
         } else {
             MqttService.CLIENTID = UUID.randomUUID().toString()
-            MqttService.subscribeTopic = "smarthouse_remote_subscribe*$houseNumber"
-            MqttService.publishTopic = "smarthouse_subscribe*$houseNumber"
+            MqttService.subscribeTopic = "smarthouse_remote_subscribe_$houseNumber"
+            MqttService.publishTopic = "smarthouse_subscribe_$houseNumber"
             MqttService.startService(applicationContext)
         }
     }
@@ -113,7 +149,9 @@ class HouseActivity : AppCompatActivity() {
         }
     }
 
+
     companion object {
         lateinit var houseNumber: String
     }
+
 }

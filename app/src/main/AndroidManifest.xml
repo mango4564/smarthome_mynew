@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <uses-permission
         android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
         tools:ignore="ProtectedPermissions" />
@@ -30,7 +32,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name="com.ichippower.smarthousedemo.ui.SplashActivity"
+            android:name=".ui.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
@@ -39,14 +41,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.ichippower.smarthousedemo.ui.MainActivity"
+            android:name=".ui.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="com.ichippower.smarthousedemo.ui.HouseActivity"
+            android:name=".ui.HouseActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <service android:name="info.mqtt.android.service.MqttService" />
-        <service android:name="com.ichippower.smarthousedemo.mqtt.MqttService" />
+        <service android:name=".mqtt.MqttService" />
     </application>
 
 </manifest>

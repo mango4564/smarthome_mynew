@@ -79,8 +79,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginStart="104dp"
+                android:layout_marginTop="88dp"
                 android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
@@ -97,29 +97,60 @@
                     android:textStyle="bold"
                     android:visibility="visible" />
 
-                <EditText
-                    android:id="@+id/houseNumber"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="200dp"
-                    android:layout_height="48dp"
+                    android:layout_height="68dp"
                     android:layout_marginTop="25dp"
-                    android:autofillHints=""
-                    android:ems="10"
-                    android:inputType="text"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="22sp"
-                    tools:ignore="LabelFor,TextFields,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                    app:endIconMode="clear_text"
+                    >
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/confirm_button"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/confirm"
-                    android:textSize="20sp"
-                    android:theme="@style/Theme.MaterialComponents.Light"
-                    app:backgroundTint="@color/teal_200"
-                    app:cornerRadius="10sp" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/houseNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+<!--                <EditText-->
+<!--                    android:id="@+id/houseNumber"-->
+<!--                    android:layout_width="200dp"-->
+<!--                    android:layout_height="48dp"-->
+<!--                    android:layout_marginTop="25dp"-->
+<!--                    android:autofillHints=""-->
+<!--                    android:ems="10"-->
+<!--                    android:inputType="text"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="22sp"-->
+<!--                    tools:ignore="LabelFor,TextFields,TouchTargetSizeCheck,SpeakableTextPresentCheck" />-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/confirm_button"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/confirm"
+                        android:textSize="20sp"
+                        android:theme="@style/Theme.MaterialComponents.Light"
+                        app:backgroundTint="@color/teal_200"
+                        app:cornerRadius="10sp" />
+
+                    <CheckBox
+                        android:id="@+id/autoLoginCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/confirm_button"
+                        android:layout_alignBottom="@id/confirm_button"
+                        android:text="自动登录" />
+
+
+                </RelativeLayout>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

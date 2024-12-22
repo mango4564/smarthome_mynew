@@ -9,150 +9,582 @@
     tools:context=".ui.bath.BathFragment">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/trans_gray"
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".VerticalActivity">
 
-        <TextClock
-            android:id="@+id/tv_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:format12Hour="hh:mm"
-            android:format24Hour="HH:mm"
-            android:paddingStart="20dp"
-            android:paddingTop="@dimen/welcome_padding"
-            android:textColor="@color/white"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints,RtlSymmetry" />
-
-        <TextClock
-            android:id="@+id/tv_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:format12Hour="yyyy年MM月dd日 EEEE"
-            android:format24Hour="yyyy年MM月dd日 EEEE"
-            android:paddingStart="20dp"
-            android:paddingBottom="30dp"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints,RtlSymmetry" />
-
-        <LinearLayout
-            android:id="@+id/firstRow"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            app:layout_constraintBottom_toBottomOf="@id/tv_date">
+            android:scrollbars="none">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/linear_border"
-                android:visibility="visible"
-                tools:visibility="visible">
+                android:background="@color/trans_gray"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/window" />
+                <TextClock
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:format12Hour="hh:mm"
+                    android:format24Hour="HH:mm"
+                    android:paddingStart="20dp"
+                    android:paddingTop="@dimen/welcome_padding"
+                    android:textColor="@color/white"
+                    android:textSize="40sp"
+                    android:textStyle="bold"
+                    tools:ignore="MissingConstraints,RtlSymmetry" />
+
+                <TextClock
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:format12Hour="yyyy年MM月dd日 EEEE"
+                    android:format24Hour="yyyy年MM月dd日 EEEE"
+                    android:paddingStart="20dp"
+                    android:paddingBottom="30dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:ignore="MissingConstraints,RtlSymmetry" />
 
                 <LinearLayout
+                    android:id="@+id/firstRow"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="100dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_date">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:text="@string/window"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:visibility="visible" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/linear_border"
+                        android:visibility="visible"
+                        tools:visibility="visible">
 
-                    <ToggleButton
-                        android:id="@+id/switchWindow"
-                        android:layout_width="90dp"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="25dp"
-                        android:background="@drawable/togglebtn_check"
-                        android:checked="false"
-                        android:disabledAlpha="1"
-                        android:textOff=""
-                        android:textOn="" />
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/yuba" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="100dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/yuba"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+
+                            <ToggleButton
+                                android:id="@+id/switchYuba"
+                                android:layout_width="90dp"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="25dp"
+                                android:background="@drawable/togglebtn_check"
+                                android:checked="false"
+                                android:disabledAlpha="1"
+                                android:textOff=""
+                                android:textOn="" />
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/linear_border"
+                        android:gravity="center"
+                        android:visibility="visible"
+                        tools:visibility="visible">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/heater" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="100dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/heater"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+
+                            <ToggleButton
+                                android:id="@+id/switchHeater"
+                                android:layout_width="90dp"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="25dp"
+                                android:background="@drawable/togglebtn_check"
+                                android:checked="false"
+                                android:disabledAlpha="1"
+                                android:textOff=""
+                                android:textOn="" />
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/linear_border"
-                android:gravity="center"
-                android:visibility="visible"
-                tools:visibility="visible">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/heater" />
 
                 <LinearLayout
+                    android:id="@+id/ThirdRow"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="100dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_date">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:text="@string/heater"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:visibility="visible" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/linear_border"
+                        android:visibility="visible"
+                        tools:visibility="visible">
 
-                    <ToggleButton
-                        android:id="@+id/switchHeater"
-                        android:layout_width="90dp"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="25dp"
-                        android:background="@drawable/togglebtn_check"
-                        android:checked="false"
-                        android:disabledAlpha="1"
-                        android:textOff=""
-                        android:textOn="" />
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="107dp"
+                            android:layout_height="106dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/fan" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="100dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/fan"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+
+                            <ToggleButton
+                                android:id="@+id/switchFan"
+                                android:layout_width="90dp"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="25dp"
+                                android:background="@drawable/togglebtn_check"
+                                android:checked="false"
+                                android:disabledAlpha="1"
+                                android:textOff=""
+                                android:textOn="" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+                            <RadioGroup
+                                android:id="@+id/speed_group"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent">
+
+                                <RadioButton
+                                    android:id="@+id/speedLow_radio"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/mode_radio"
+                                    android:button="@null"
+                                    android:checked="false"
+                                    android:tag="1"
+                                    android:text="低"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/gray"
+                                    android:textSize="15sp" />
+
+                                <RadioButton
+                                    android:id="@+id/speedMedium_radio"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="1dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/mode_radio"
+                                    android:button="@null"
+                                    android:checked="false"
+                                    android:tag="2"
+                                    android:text="中"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/gray"
+                                    android:textSize="15sp" />
+
+                                <RadioButton
+                                    android:id="@+id/speedHigh_radio"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="1dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/mode_radio"
+                                    android:button="@null"
+                                    android:checked="false"
+                                    android:tag="3"
+                                    android:text="高"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/gray"
+                                    android:textSize="15sp" />
+                            </RadioGroup>
+
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/linear_border"
+                        android:gravity="center"
+                        android:visibility="visible"
+                        tools:visibility="visible">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/yellow_light" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="100dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/bath_light"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+
+                            <ToggleButton
+                                android:id="@+id/switchBathRoomLight"
+                                android:layout_width="90dp"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="25dp"
+                                android:background="@drawable/togglebtn_check"
+                                android:checked="false"
+                                android:disabledAlpha="1"
+                                android:textOff=""
+                                android:textOn="" />
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/SecondRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_date">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/linear_border"
+                        android:visibility="visible"
+                        tools:visibility="visible">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/window" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="100dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/window"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+
+                            <ToggleButton
+                                android:id="@+id/switchWindow"
+                                android:layout_width="90dp"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="25dp"
+                                android:background="@drawable/togglebtn_check"
+                                android:checked="false"
+                                android:disabledAlpha="1"
+                                android:textOff=""
+                                android:textOn="" />
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/linear_border"
+                        android:gravity="center"
+                        android:visibility="visible"
+                        tools:visibility="visible">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/curtain" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="100dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/curtain"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+
+                            <ToggleButton
+                                android:id="@+id/switchCurtain"
+                                android:layout_width="90dp"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="25dp"
+                                android:background="@drawable/togglebtn_check"
+                                android:checked="false"
+                                android:disabledAlpha="1"
+                                android:textOff=""
+                                android:textOn="" />
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fourthRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="?actionBarSize"
+                    android:baselineAligned="false"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_date">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/linear_border"
+                        android:visibility="visible"
+                        tools:visibility="visible">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/curtain" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="100dp"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/curtain"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginTop="5dp"
+                                    android:fontFamily="sans-serif"
+                                    android:text="@string/autoOff"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold"
+                                    android:visibility="visible" />
+
+                                <ToggleButton
+                                    android:id="@+id/switchAutoOn"
+                                    android:layout_width="90dp"
+                                    android:layout_height="48dp"
+                                    android:layout_marginStart="40dp"
+                                    android:background="@drawable/togglebtn_check"
+                                    android:checked="false"
+                                    android:disabledAlpha="1"
+                                    android:textOff=""
+                                    android:textOn="" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="20dp"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginTop="5dp"
+                                    android:fontFamily="sans-serif"
+                                    android:text="@string/autoOn"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold"
+                                    android:visibility="visible" />
+
+                                <ToggleButton
+                                    android:id="@+id/switchAutoOff"
+                                    android:layout_width="90dp"
+                                    android:layout_height="48dp"
+                                    android:layout_marginStart="40dp"
+                                    android:background="@drawable/togglebtn_check"
+                                    android:checked="false"
+                                    android:disabledAlpha="1"
+                                    android:textOff=""
+                                    android:textOn="" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

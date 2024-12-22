@@ -31,6 +31,6 @@ class SplashActivity : AppCompatActivity() {
         }
 
         val timerTask = MyTimerTask()
-        timer.schedule(timerTask, 3000)
+        timer.schedule(timerTask, 1000)
     }
 }

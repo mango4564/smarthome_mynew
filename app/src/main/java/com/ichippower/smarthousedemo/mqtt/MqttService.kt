@@ -8,12 +8,14 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.media.RingtoneManager
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
 import android.util.Log
+import androidx.core.content.edit
 import com.google.gson.Gson
 import com.ichippower.smarthousedemo.R
 import com.ichippower.smarthousedemo.ui.HouseActivity
@@ -26,6 +28,7 @@ import org.eclipse.paho.client.mqttv3.MqttCallback
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions
 import org.eclipse.paho.client.mqttv3.MqttMessage
 import java.io.InterruptedIOException
+
 
 class MqttService : Service() {
 
@@ -49,11 +52,36 @@ class MqttService : Service() {
         Thread {
             run {
                 try {
-                    //耗时操作：数据处理并保存，向Activity发送广播
-                    mIntent.putExtra("data", message)
-                    sendBroadcast(mIntent)
-                    checkAlarm(message)
-                    Thread.sleep(300)
+                    //耗时操作：数据处理并保存
+                    if("houseNumber" in message){
+                        mIntent.putExtra("data", message)
+                        sendBroadcast(mIntent)
+                        val data = Gson().fromJson(message, ResponseModeParam::class.java)
+                        getSharedPreferences("houseStatus"+ HouseActivity.houseNumber, MODE_PRIVATE).edit{
+                            clear()
+                            putString("switchDoor", data.getSwitchDoor())
+                            putString("switchLivingLight",data.getSwitchLivingLight())
+                            putString("switchLightRoof", data.getSwitchLightRoof())
+                            putString("switchBedLight", data.getSwitchBedLight())
+                            putString("switchGasAlarm", data.getSwitchGasAlarm())
+                            putString("switchKichenLight", data.getSwitchKichenLight())
+                            putString("switchKitchenFan", data.getSwitchKitchenFan())
+                            putString("switchFireAlarm", data.getSwitchFireAlarm())
+                            putString("switchHeater", data.getSwitchHeater())
+                            putString("switchWindow", data.getSwitchWindow())
+                            putString("switchYuba", data.getSwitchYuba())
+                            putString("switchBathroomFan", data.getSwitchFan())
+                            putString("switchBathRoomLight", data.getSwitchBathRoomLight())
+                            putString("switchCurtain", data.getSwitchCurtain())
+                        }
+
+                    }else{
+                        mIntent.putExtra("data", message)
+                        sendBroadcast(mIntent)
+                        checkAlarm(message)
+                        Thread.sleep(300)
+                    }
+
                 } catch (e: InterruptedIOException) {
                     e.printStackTrace()
                 }
@@ -77,13 +105,14 @@ class MqttService : Service() {
             } else {
                 "未知报警信息"
             }
+
             val context = applicationContext
             val notification: Notification = Notification.Builder(context, "smarthouse")
                 .setContentTitle(data.getAlarmType())
                 .setContentText(text)
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.drawable.ic_notifications_black_24dp)
-                .setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.logo_icon)) //设置大图标
+                .setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.ic_notifications_black_24dp)) //设置大图标
                 .setAutoCancel(true)
                 .build()
             val notificationManager =
@@ -93,6 +122,7 @@ class MqttService : Service() {
             channel.setShowBadge(true)
             notificationManager.createNotificationChannel(channel)
             notificationManager.notify(1, notification)
+
         }
     }
 
@@ -187,7 +217,7 @@ class MqttService : Service() {
     //订阅主题的回调
     private val mqttCallback: MqttCallback = object : MqttCallback {
         override fun messageArrived(topic: String, message: MqttMessage) {
-            Log.i(TAG, "收到消息： " + String(message.payload))
+            Log.i(TAG, "收到消息： " + String(message.payload)+"topic:"+topic)
             //收到消息后，处理数据
             response(String(message.payload))
         }
@@ -227,6 +257,7 @@ class MqttService : Service() {
          */
         fun startService(mContext: Context) {
             val intent = Intent(mContext, MqttService::class.java)
+            intent.putExtra("houseNumber",HouseActivity.houseNumber)
             mContext.startService(intent)
         }
 

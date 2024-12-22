@@ -11,6 +11,7 @@
         android:icon="@drawable/baseline_bed_24"
         android:title="@string/title_bed" />
 
+
     <item
         android:id="@+id/navigation_kitchen"
         android:icon="@drawable/baseline_kitchen_24"
@@ -24,6 +25,6 @@
     <item
         android:id="@+id/navigation_about"
         android:icon="@drawable/baseline_info_24"
-        android:title="@string/about" />
+        android:title="场景" />
 
 </menu>
